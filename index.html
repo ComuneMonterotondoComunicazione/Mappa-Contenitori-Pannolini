@@ -292,13 +292,13 @@ const strati = {
     L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}", { maxZoom: 20, maxNativeZoom: 19 })
   ])
 };
-strati.mappa.addTo(mappa);
+strati.satellite.addTo(mappa);
 
 const Selettore = L.Control.extend({
   options: { position: "topright" },
   onAdd() {
     const box = L.DomUtil.create("div", "selettore");
-    box.innerHTML = '<button data-s="mappa" class="attivo">Mappa</button><button data-s="satellite">Satellite</button>';
+    box.innerHTML = '<button data-s="satellite" class="attivo">Satellite</button><button data-s="mappa">Mappa</button>';
     L.DomEvent.disableClickPropagation(box);
     box.addEventListener("click", e => {
       const s = e.target.dataset.s;
